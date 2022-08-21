@@ -3,11 +3,14 @@ local tnoremap = require("henry.keymap").tnoremap
 
 nnoremap("<leader>e", "<cmd>Neotree<CR>")
 
--- Remap split navigation to hjkl
+-- Split nav
 nnoremap("<c-h>", "<cmd>wincmd h<CR>")
 nnoremap("<c-j>", "<cmd>wincmd j<CR>")
 nnoremap("<c-k>", "<cmd>wincmd k<CR>")
 nnoremap("<c-l>", "<cmd>wincmd l<CR>")
+nnoremap("<leader>c", "<c-w>c")
+nnoremap("<leader>v", "<c-w>v")
+nnoremap("<leader>s", "<c-w>s")
 
 -- Lsp remaps
 nnoremap("gd", ":lua vim.lsp.buf.definition()<cr>")
@@ -29,6 +32,7 @@ nnoremap("<leader>fh", "<cmd>Telescope help_tags<cr>")
 
 -- Toggleterm 
 nnoremap("<c-\\>", "<cmd>ToggleTerm<cr>")
+nnoremap("<c-\\>2", "<cmd>ToggleTerm 2<cr>")
 
 -- Terminal
 tnoremap("<Esc>", "<c-\\><c-n>")
