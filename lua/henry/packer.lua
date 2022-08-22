@@ -41,4 +41,5 @@ return require('packer').startup(function(use)
         require("toggleterm").setup()
     end}
     require("toggleterm").setup{}
+    use 'Raimondi/delimitMate'
 end)
