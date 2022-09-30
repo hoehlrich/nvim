@@ -6,7 +6,10 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
-    use 'EdenEast/nightfox.nvim'
+
+    -- Theme
+    use { "catppuccin/nvim", as = "catppuccin" }
+
 
     use {
         "nvim-neo-tree/neo-tree.nvim",
@@ -20,7 +23,7 @@ return require('packer').startup(function(use)
 
     use 'nvim-treesitter/nvim-treesitter'
 
-    -- Lsp shit
+    -- LSP shit
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
 
@@ -42,4 +45,8 @@ return require('packer').startup(function(use)
     end}
     require("toggleterm").setup{}
     use 'Raimondi/delimitMate'
+
+    -- Vimwiki
+    use 'vimwiki/vimwiki'
+    use 'dhruvasagar/vim-table-mode'
 end)
