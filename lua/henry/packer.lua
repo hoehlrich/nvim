@@ -49,4 +49,10 @@ return require('packer').startup(function(use)
     -- Vimwiki
     use 'vimwiki/vimwiki'
     use 'dhruvasagar/vim-table-mode'
+
+    -- Transparency
+    use 'xiyaowong/nvim-transparent'
+    require('transparent').setup({
+        enable = true,
+    })
 end)
