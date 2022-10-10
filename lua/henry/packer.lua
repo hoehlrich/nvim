@@ -1,26 +1,19 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
-
 return require('packer').startup(function(use)
-    -- Packer can manage itself
+    -- Packer
     use 'wbthomason/packer.nvim'
 
-    -- Theme
-    use { "catppuccin/nvim", as = "catppuccin" }
-
-
+    -- Colorscheme
     use {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v2.x",
-        requires = {
-            "nvim-lua/plenary.nvim",
-            "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim",
-        }
+        "catppuccin/nvim",
+        as = "catppuccin",
+        config = function()
+            vim.g.catppuccin_flavour = "mocha"
+            require("catppuccin").setup()
+            vim.api.nvim_command "colorscheme catppuccin"
+        end
     }
 
+    -- Tresitter
     use 'nvim-treesitter/nvim-treesitter'
 
     -- LSP shit
@@ -28,31 +21,19 @@ return require('packer').startup(function(use)
     use 'williamboman/nvim-lsp-installer'
 
     -- Completion
+    use 'neovim/nvim-lspconfig'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
 
-    -- Telescope
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
-
-    use {"akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
-        require("toggleterm").setup()
-    end}
-    require("toggleterm").setup{}
-    use 'Raimondi/delimitMate'
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/vim-vsnip'
 
     -- Vimwiki
     use 'vimwiki/vimwiki'
-    use 'dhruvasagar/vim-table-mode'
 
-    -- Transparency
-    use 'xiyaowong/nvim-transparent'
-    require('transparent').setup({
-        enable = true,
-    })
+    -- Floating terminal
+    use 'voldikss/vim-floaterm'
 end)

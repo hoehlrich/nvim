@@ -1,38 +1,35 @@
-local nnoremap = require("henry.keymap").nnoremap
-local tnoremap = require("henry.keymap").tnoremap
+local nnoremap = require('henry.keymap').nnoremap
+local vnoremap = require('henry.keymap').vnoremap
+local tnoremap = require('henry.keymap').tnoremap
 
-nnoremap("<leader>e", "<cmd>Neotree<CR>")
+-- Copy and paste to clipboard
+nnoremap('<c-v>', '"+p')
+vnoremap('<c-c>', '"*y :let @+=@*<CR>')
 
--- Split nav
-nnoremap("<c-h>", "<cmd>wincmd h<CR>")
-nnoremap("<c-j>", "<cmd>wincmd j<CR>")
-nnoremap("<c-k>", "<cmd>wincmd k<CR>")
-nnoremap("<c-l>", "<cmd>wincmd l<CR>")
-nnoremap("<leader>c", "<c-w>c")
-nnoremap("<leader>v", "<c-w>v")
-nnoremap("<leader>s", "<c-w>s")
+-- LSP remaps
+nnoremap('gD', vim.lsp.buf.declaration)
+nnoremap('gd', vim.lsp.buf.definition)
+nnoremap('K', vim.lsp.buf.hover)
+nnoremap('gi', vim.lsp.buf.implementation)
+nnoremap('<leader>D', vim.lsp.buf.type_definition)
+nnoremap('<leader>rn', vim.lsp.buf.rename)
+nnoremap('<leader>ca', vim.lsp.buf.code_action)
+nnoremap('gr', vim.lsp.buf.references)
+nnoremap('<leader>fmt', function() vim.lsp.buf.format { async = true } end)
 
--- Lsp remaps
-nnoremap("gd", ":lua vim.lsp.buf.definition()<cr>")
-nnoremap("gD", ":lua vim.lsp.buf.declaration()<cr>")
-nnoremap("gi", ":lua vim.lsp.buf.implementation()<cr>")
-nnoremap("gw", ":lua vim.lsp.buf.document_symbol()<cr>")
-nnoremap("gw", ":lua vim.lsp.buf.workspace_symbol()<cr>")
-nnoremap("gr", ":lua vim.lsp.buf.references()<cr>")
-nnoremap("gt", ":lua vim.lsp.buf.type_definition()<cr>")
-nnoremap("K", ":lua vim.lsp.buf.hover()<cr>")
-nnoremap("<leader>af", ":lua vim.lsp.buf.code_action()<cr>")
-nnoremap("<leader>rn", ":lua vim.lsp.buf.rename()<cr>")
+-- Split movement remaps
+nnoremap('<c-h>', '<c-w>h')
+nnoremap('<c-j>', '<c-w>j')
+nnoremap('<c-k>', '<c-w>k')
+nnoremap('<c-l>', '<c-w>l')
 
--- Telescope remaps
-nnoremap("<leader>ff", "<cmd>Telescope find_files<cr>")
-nnoremap("<leader>fg", "<cmd>Telescope live_grep<cr>")
-nnoremap("<leader>fb", "<cmd>Telescope buffers<cr>")
-nnoremap("<leader>fh", "<cmd>Telescope help_tags<cr>")
+-- Floaterm
+nnoremap('<leader>tn', '<cmd>FloatermNew<cr>')
+nnoremap('<leader>tt', '<cmd>FloatermToggle<cr>')
+tnoremap('<esc>', '<c-\\><c-n><cmd>FloatermToggle<cr>')
 
--- Toggleterm 
-nnoremap("<c-\\>", "<cmd>ToggleTerm<cr>")
-nnoremap("<c-\\>2", "<cmd>ToggleTerm 2<cr>")
+tnoremap('<c-h>', '<c-\\><c-n><cmd>FloatermPrev<cr>')
+tnoremap('<c-l>', '<c-\\><c-n><cmd>FloatermNext<cr>')
 
--- Terminal
-tnoremap("<Esc>", "<c-\\><c-n>")
+tnoremap('<c-n>', '<c-\\><c-n><cmd>FloatermNew<cr>')
+tnoremap('<c-c>', '<c-\\><c-n><cmd>FloatermKill<cr>')
