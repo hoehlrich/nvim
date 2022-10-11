@@ -36,4 +36,7 @@ return require('packer').startup(function(use)
 
     -- Floating terminal
     use 'voldikss/vim-floaterm'
+
+    -- Transparency
+    use 'xiyaowong/nvim-transparent'
 end)

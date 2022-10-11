@@ -16,3 +16,4 @@ vim.opt.wrap = false
 -- Leader key
 
 vim.g.mapleader = ' '
+
