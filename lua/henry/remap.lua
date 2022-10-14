@@ -33,3 +33,6 @@ tnoremap('<c-l>', '<c-\\><c-n><cmd>FloatermNext<cr>')
 
 tnoremap('<c-n>', '<c-\\><c-n><cmd>FloatermNew<cr>')
 tnoremap('<c-c>', '<c-\\><c-n><cmd>FloatermKill<cr>')
+
+-- Netrw
+nnoremap('<leader>e', '<cmd>Ex<cr>')

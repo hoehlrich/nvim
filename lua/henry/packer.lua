@@ -3,15 +3,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- Colorscheme
-    use {
-        "catppuccin/nvim",
-        as = "catppuccin",
-        config = function()
-            vim.g.catppuccin_flavour = "mocha"
-            require("catppuccin").setup()
-            vim.api.nvim_command "colorscheme catppuccin"
-        end
-    }
+    use { "ellisonleao/gruvbox.nvim" }
 
     -- Tresitter
     use 'nvim-treesitter/nvim-treesitter'
