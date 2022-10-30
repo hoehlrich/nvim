@@ -3,7 +3,7 @@ local vnoremap = require('henry.keymap').vnoremap
 local tnoremap = require('henry.keymap').tnoremap
 
 -- Copy
-vnoremap('<leader>y', '<cmd>!xsel -i -b<cr>')
+vnoremap('<leader>y', '<cmd><cr>')
 
 -- LSP remaps
 nnoremap('gD', vim.lsp.buf.declaration)
@@ -25,7 +25,7 @@ nnoremap('<c-l>', '<c-w>l')
 -- Floaterm
 nnoremap('<leader>tn', '<cmd>FloatermNew<cr>')
 nnoremap('<leader>tt', '<cmd>FloatermToggle<cr>')
-tnoremap('<esc>', '<c-\\><c-n><cmd>FloatermToggle<cr>')
+tnoremap('<esc>', '<c-\\><c-n><cmd>FloatermHide<cr>')
 
 tnoremap('<c-h>', '<c-\\><c-n><cmd>FloatermPrev<cr>')
 tnoremap('<c-l>', '<c-\\><c-n><cmd>FloatermNext<cr>')
@@ -35,3 +35,7 @@ tnoremap('<c-c>', '<c-\\><c-n><cmd>FloatermKill<cr>')
 
 -- Netrw
 nnoremap('<leader>e', '<cmd>Ex<cr>')
+
+-- fzf
+nnoremap('<c-p>', '<cmd>Files<cr>')
+

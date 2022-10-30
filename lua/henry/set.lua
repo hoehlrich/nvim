@@ -14,6 +14,5 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 
 -- Leader key
-
 vim.g.mapleader = ' '
 

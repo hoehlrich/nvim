@@ -3,7 +3,9 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- Colorscheme
-    use { "ellisonleao/gruvbox.nvim" }
+    -- use { "morhetz/gruvbox" }
+    use { "sainnhe/gruvbox-material" }
+
 
     -- Tresitter
     use 'nvim-treesitter/nvim-treesitter'
@@ -28,7 +30,13 @@ return require('packer').startup(function(use)
 
     -- Floating terminal
     use 'voldikss/vim-floaterm'
+    
+    -- fzf
+    use 'junegunn/fzf'
+    use 'junegunn/fzf.vim'
 
+    
     -- Transparency
     use 'xiyaowong/nvim-transparent'
 end)
+
