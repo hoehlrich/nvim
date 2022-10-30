@@ -2,9 +2,8 @@ local nnoremap = require('henry.keymap').nnoremap
 local vnoremap = require('henry.keymap').vnoremap
 local tnoremap = require('henry.keymap').tnoremap
 
--- Copy and paste to clipboard
-nnoremap('<c-v>', '"+p')
-vnoremap('<c-c>', '"*y :let @+=@*<CR>')
+-- Copy
+vnoremap('<leader>y', '<cmd>!xsel -i -b<cr>')
 
 -- LSP remaps
 nnoremap('gD', vim.lsp.buf.declaration)
