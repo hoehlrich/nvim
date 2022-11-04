@@ -2,8 +2,17 @@ local nnoremap = require('henry.keymap').nnoremap
 local vnoremap = require('henry.keymap').vnoremap
 local tnoremap = require('henry.keymap').tnoremap
 
--- Copy
-vnoremap('<leader>y', '<cmd><cr>')
+-- LaTex
+nnoremap('<leader>rr', '<cmd>!pandoc -t pdf -f markdown+lists_without_preceding_blankline -o /tmp/vout.pdf %<cr><cr>')
+nnoremap('<leader>ro', '<cmd>!pandoc -t pdf -f markdown+lists_without_preceding_blankline % | zathura -<cr><cr>')
+
+-- Copy & Paste
+vnoremap('<leader>y', '"+y')
+nnoremap('<leader>y', '"+y<cr>')
+nnoremap('<leader>p', '"+p<cr>')
+nnoremap('<leader>P', '"+P<cr>')
+vnoremap('<leader>p', '"+p<cr>')
+vnoremap('<leader>P', '"+P<cr>')
 
 -- LSP remaps
 nnoremap('gD', vim.lsp.buf.declaration)
@@ -29,9 +38,6 @@ tnoremap('<esc>', '<c-\\><c-n><cmd>FloatermHide<cr>')
 
 tnoremap('<c-h>', '<c-\\><c-n><cmd>FloatermPrev<cr>')
 tnoremap('<c-l>', '<c-\\><c-n><cmd>FloatermNext<cr>')
-
-tnoremap('<c-n>', '<c-\\><c-n><cmd>FloatermNew<cr>')
-tnoremap('<c-c>', '<c-\\><c-n><cmd>FloatermKill<cr>')
 
 -- Netrw
 nnoremap('<leader>e', '<cmd>Ex<cr>')
