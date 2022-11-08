@@ -2,9 +2,9 @@ local nnoremap = require('henry.keymap').nnoremap
 local vnoremap = require('henry.keymap').vnoremap
 local tnoremap = require('henry.keymap').tnoremap
 
--- LaTex
-nnoremap('<leader>rr', '<cmd>!pandoc -t pdf -f markdown+lists_without_preceding_blankline -o /tmp/vout.pdf %<cr><cr>')
-nnoremap('<leader>ro', '<cmd>!pandoc -t pdf -f markdown+lists_without_preceding_blankline % | zathura - &<cr><cr>')
+-- Utils
+nnoremap('<leader>rr', "<cmd>:lua require('henry.utils').render()<cr><cr>")
+nnoremap('<leader>ro', "<cmd>:lua require('henry.utils').open()<cr><cr>")
 
 -- Copy & Paste
 vnoremap('<leader>y', '"+y')
