@@ -9,7 +9,7 @@ function M.render()
 end
 
 function M.open()
-    if vim.bo.filetype == 'tex' then
+    if vim.bo.filetype == 'plaintext' then
         -- vim.cmd('!pdflatex --output-directory /tmp %<cr><cr>')
     elseif vim.bo.filetype == 'vimwiki' then
         vim.cmd('!pandoc -t pdf -f markdown+lists_without_preceding_blankline % | zathura - &')

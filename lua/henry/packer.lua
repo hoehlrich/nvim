@@ -28,9 +28,6 @@ return require('packer').startup(function(use)
     -- Vimwiki
     use 'vimwiki/vimwiki'
 
-    -- Floating terminal
-    use 'voldikss/vim-floaterm'
-    
     -- fzf
     use 'junegunn/fzf'
     use 'junegunn/fzf.vim'
