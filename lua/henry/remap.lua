@@ -30,8 +30,8 @@ nnoremap('gr', vim.lsp.buf.references)
 nnoremap('<leader>fmt', function() vim.lsp.buf.format { async = true } end)
 
 -- Terminal
-tnoremap('<esc>', '<c-\\><c-n>')
-nnoremap('<leader>tn', '<cmd>tabnew<cr><cmd>term<cr>i')
+tnoremap('<esc>', '<c-\\><c-n>ZZ')
+nnoremap('<leader>tt', '<cmd>ToggleTerm direction=float<cr>')
 
 -- Split movement remaps
 nnoremap('<c-h>', '<c-w>h')

@@ -1,18 +1,26 @@
 return require('packer').startup(function(use)
-    -- Packer
     use 'wbthomason/packer.nvim'
 
-    -- Colorscheme
-    -- use { "morhetz/gruvbox" }
-    use { "sainnhe/gruvbox-material" }
-
-
-    -- Tresitter
-    use 'nvim-treesitter/nvim-treesitter'
 
     -- LSP shit
     use 'neovim/nvim-lspconfig'
-    use 'williamboman/nvim-lsp-installer'
+    use 'williamboman/mason.nvim'
+
+    -- Treesitter
+    use 'nvim-treesitter/nvim-treesitter'
+
+    -- Ricing (funny)
+    use 'ellisonleao/gruvbox.nvim'
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
+
+    -- Terminal
+    use {
+        'akinsho/toggleterm.nvim', tag = '*', config = function()
+        require("toggleterm").setup()
+    end}
 
     -- Completion
     use 'neovim/nvim-lspconfig'
@@ -21,19 +29,14 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
-
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
 
-    -- Vimwiki
-    use 'vimwiki/vimwiki'
-
-    -- fzf
+    -- Fzf
     use 'junegunn/fzf'
     use 'junegunn/fzf.vim'
 
+    -- Vimwiki
+    use 'vimwiki/vimwiki'
     
-    -- Transparency
-    use 'xiyaowong/nvim-transparent'
 end)
-
