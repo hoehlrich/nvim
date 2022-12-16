@@ -45,3 +45,7 @@ nnoremap('<leader>e', '<cmd>Ex<cr>')
 -- fzf
 nnoremap('<c-p>', '<cmd>Files<cr>')
 
+-- Neovide
+
+-- local function
+
