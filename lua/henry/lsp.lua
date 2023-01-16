@@ -62,3 +62,14 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 require("lspconfig").sumneko_lua.setup {}
 require("lspconfig").rust_analyzer.setup {}
+require("lspconfig").clangd.setup {}
+require("lspconfig").jdtls.setup {}
+
+local MY_FQBN = "arduino:avr:nano"
+require("lspconfig").arduino_language_server.setup { cmd = {
+        "arduino-language-server",
+        "-cli-config", "/path/to/arduino-cli.yaml",
+        "-fqbn",
+        MY_FQBN
+    }
+}
