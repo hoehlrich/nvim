@@ -64,6 +64,7 @@ require("lspconfig").sumneko_lua.setup {}
 require("lspconfig").rust_analyzer.setup {}
 require("lspconfig").clangd.setup {}
 require("lspconfig").jdtls.setup {}
+require("lspconfig").texlab.setup {}
 
 local MY_FQBN = "arduino:avr:nano"
 require("lspconfig").arduino_language_server.setup { cmd = {

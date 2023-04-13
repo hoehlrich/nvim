@@ -18,3 +18,5 @@ vim.g.mapleader = ' '
 
 -- Vimwiki
 vim.g.vimwiki_list = {{path = '~/Documents/vimwiki', syntax = 'markdown', ext = '.md'}}
+
+vim.opt.inde = nil
