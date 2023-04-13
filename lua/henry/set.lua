@@ -17,6 +17,10 @@ vim.opt.wrap = false
 vim.g.mapleader = ' '
 
 -- Vimwiki
+<<<<<<< HEAD
 vim.g.vimwiki_list = {{path = '~/Documents/vimwiki', syntax = 'markdown', ext = '.md'}}
 
 vim.opt.inde = nil
+=======
+vim.g.vimwiki_list = {{path = '~/documents/vimwiki', syntax = 'markdown', ext = '.md'}}
+>>>>>>> 303c2d6a75bbbec1b74f9fa3021647add83184b0
