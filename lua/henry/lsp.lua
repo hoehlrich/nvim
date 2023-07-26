@@ -63,7 +63,7 @@ require("lspconfig").rust_analyzer.setup {}
 require("lspconfig").clangd.setup {
     filetypes = { "c" },
     capabilities = capabilities,
-    cmd = { "clangd" }
+    cmd = { "clangd" },
 }
 require("clangd_extensions").setup {}
 require("lspconfig").jdtls.setup {}
@@ -71,11 +71,4 @@ require("lspconfig").texlab.setup {}
 require("lspconfig").bashls.setup {}
 require("lspconfig").lua_ls.setup {}
 
-local MY_FQBN = "arduino:avr:nano"
-require("lspconfig").arduino_language_server.setup { cmd = {
-        "arduino-language-server",
-        "-cli-config", "/path/to/arduino-cli.yaml",
-        "-fqbn",
-        MY_FQBN
-    }
-}
+

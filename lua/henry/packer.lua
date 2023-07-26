@@ -37,6 +37,9 @@ return require('packer').startup(function(use)
     use 'junegunn/fzf'
     use 'junegunn/fzf.vim'
 
+    -- Formatting
+    use "mhartington/formatter.nvim"
+
     -- Vimwiki
     -- use 'vimwiki/vimwiki'
     

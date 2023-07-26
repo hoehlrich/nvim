@@ -31,7 +31,7 @@ nnoremap('<leader>D', vim.lsp.buf.type_definition)
 nnoremap('<leader>rn', vim.lsp.buf.rename)
 nnoremap('<leader>ca', vim.lsp.buf.code_action)
 nnoremap('gr', vim.lsp.buf.references)
-nnoremap('<leader>fmt', function() vim.lsp.buf.format { async = true } end)
+nnoremap('<leader>f', '<cmd>Format<cr>')
 
 -- Terminal
 tnoremap('<esc>', '<c-\\><c-n>ZZ')
