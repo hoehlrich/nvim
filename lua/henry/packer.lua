@@ -5,6 +5,7 @@ return require('packer').startup(function(use)
     use 'neovim/nvim-lspconfig'
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
+    use 'p00f/clangd_extensions.nvim'
 
     -- Treesitter
     use 'nvim-treesitter/nvim-treesitter'
@@ -37,6 +38,6 @@ return require('packer').startup(function(use)
     use 'junegunn/fzf.vim'
 
     -- Vimwiki
-    use 'vimwiki/vimwiki'
+    -- use 'vimwiki/vimwiki'
     
 end)

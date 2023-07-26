@@ -2,6 +2,10 @@ local nnoremap = require('henry.keymap').nnoremap
 local vnoremap = require('henry.keymap').vnoremap
 local tnoremap = require('henry.keymap').tnoremap
 
+-- Navigation
+nnoremap('<C-d>', '<C-d>zz');
+nnoremap('<C-u>', '<C-u>zz');
+
 -- Utils
 nnoremap('<leader>rr', "<cmd>:lua require('henry.utils').render()<cr>")
 nnoremap('<leader>ro', "<cmd>:lua require('henry.utils').open()<cr>")
@@ -44,8 +48,4 @@ nnoremap('<leader>e', '<cmd>Ex<cr>')
 
 -- fzf
 nnoremap('<c-p>', '<cmd>Files<cr>')
-
--- Neovide
-
--- local function
 

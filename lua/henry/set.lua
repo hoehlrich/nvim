@@ -16,5 +16,8 @@ vim.opt.wrap = false
 -- Leader key
 vim.g.mapleader = ' '
 
+-- LSP shit
+vim.g.c_syntax_for_h = true
+
 -- Vimwiki
-vim.g.vimwiki_list = {{path = '~/Documents/vimwiki', syntax = 'markdown', ext = '.md'}}
+-- vim.g.vimwiki_list = {{path = '~/Documents/vimwiki', syntax = 'markdown', ext = '.md'}}

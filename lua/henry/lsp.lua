@@ -23,7 +23,7 @@ cmp.setup({
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
-        { name = 'vsnip' },
+        -- { name = 'vsnip' },
     }, {
         { name = 'buffer' },
     })
@@ -34,7 +34,7 @@ cmp.setup.filetype('gitcommit', {
     sources = cmp.config.sources({
         { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
     }, {
-        { name = 'buffer' },
+        -- { name = 'buffer' },
     })
 })
 
@@ -56,15 +56,20 @@ cmp.setup.cmdline(':', {
     })
 })
 
-require('lspconfig').rust_analyzer.setup {}
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require("lspconfig").sumneko_lua.setup {}
 require("lspconfig").rust_analyzer.setup {}
-require("lspconfig").clangd.setup {}
+require("lspconfig").clangd.setup {
+    filetypes = { "c" },
+    capabilities = capabilities,
+    cmd = { "clangd" }
+}
+require("clangd_extensions").setup {}
 require("lspconfig").jdtls.setup {}
 require("lspconfig").texlab.setup {}
+require("lspconfig").bashls.setup {}
+require("lspconfig").lua_ls.setup {}
 
 local MY_FQBN = "arduino:avr:nano"
 require("lspconfig").arduino_language_server.setup { cmd = {
