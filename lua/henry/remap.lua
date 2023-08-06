@@ -1,51 +1,64 @@
-local nnoremap = require('henry.keymap').nnoremap
-local vnoremap = require('henry.keymap').vnoremap
-local tnoremap = require('henry.keymap').tnoremap
+vim.keymap.set('n', '<leader>e', '<cmd>Ex<cr>')
 
--- Navigation
-nnoremap('<C-d>', '<C-d>zz');
-nnoremap('<C-u>', '<C-u>zz');
+-- Scrolling
+vim.keymap.set('n', '<c-d>', '<c-d>zz')
+vim.keymap.set('n', '<c-u>', '<c-u>zz')
 
--- Utils
-nnoremap('<leader>rr', "<cmd>:lua require('henry.utils').render()<cr>")
-nnoremap('<leader>ro', "<cmd>:lua require('henry.utils').open()<cr>")
+-- Copy and paste
+vim.keymap.set({'v', 'n'}, '<leader>y', '"+y')
+vim.keymap.set({'v', 'n'}, '<leader>p', '"+p')
+vim.keymap.set({'v', 'n'}, '<leader>P', '"+P')
 
--- Cmp
-nnoremap('<leader>cmpon', "<cmd> lua require('cmp').setup({enabled=true})<cr>");
-nnoremap('<leader>cmpoff', "<cmd> lua require('cmp').setup({enabled=false})<cr>");
+-- Splits
+vim.keymap.set('n', '<c-h>', '<c-w>h')
+vim.keymap.set('n', '<c-j>', '<c-w>j')
+vim.keymap.set('n', '<c-k>', '<c-w>k')
+vim.keymap.set('n', '<c-l>', '<c-w>l')
 
--- Copy & Paste
-vnoremap('<leader>y', '"+y')
-nnoremap('<leader>y', '"+y<cr>')
-nnoremap('<leader>p', '"+p<cr>')
-nnoremap('<leader>P', '"+P<cr>')
-vnoremap('<leader>p', '"+p<cr>')
-vnoremap('<leader>P', '"+P<cr>')
+-- Telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<c-p>', builtin.find_files)
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
--- LSP remaps
-nnoremap('gD', vim.lsp.buf.declaration)
-nnoremap('gd', vim.lsp.buf.definition)
-nnoremap('K', vim.lsp.buf.hover)
-nnoremap('gi', vim.lsp.buf.implementation)
-nnoremap('<leader>D', vim.lsp.buf.type_definition)
-nnoremap('<leader>rn', vim.lsp.buf.rename)
-nnoremap('<leader>ca', vim.lsp.buf.code_action)
-nnoremap('gr', vim.lsp.buf.references)
-nnoremap('<leader>f', '<cmd>Format<cr>')
+-- Misc
+vim.keymap.set('n', '<leader>noh', '<cmd>noh<cr>');
 
--- Terminal
-tnoremap('<esc>', '<c-\\><c-n>ZZ')
-nnoremap('<leader>tt', '<cmd>ToggleTerm direction=float<cr>')
+-- LSP
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
+vim.keymap.set('n', '<[d>', vim.diagnostic.goto_prev)
+vim.keymap.set('n', '<d]>', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
--- Split movement remaps
-nnoremap('<c-h>', '<c-w>h')
-nnoremap('<c-j>', '<c-w>j')
-nnoremap('<c-k>', '<c-w>k')
-nnoremap('<c-l>', '<c-w>l')
+-- Map after client attatched
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
--- Netrw
-nnoremap('<leader>e', '<cmd>Ex<cr>')
-
--- fzf
-nnoremap('<c-p>', '<cmd>Files<cr>')
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+    vim.keymap.set('n', '<space>wl', function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, opts)
+    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<space>f', function()
+      vim.lsp.buf.format { async = true }
+    end, opts)
+  end,
+})
 

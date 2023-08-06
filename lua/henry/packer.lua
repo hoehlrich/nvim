@@ -1,46 +1,27 @@
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
-    -- LSP shit
-    use 'neovim/nvim-lspconfig'
-    use 'williamboman/mason.nvim'
-    use 'williamboman/mason-lspconfig.nvim'
-    use 'p00f/clangd_extensions.nvim'
+    -- Telescope
+    use "nvim-lua/plenary.nvim"
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use 'nvim-telescope/telescope.nvim'
+    require('telescope').load_extension('fzf')
 
-    -- Treesitter
+    -- Colors
+    use 'ellisonleao/gruvbox.nvim'
     use 'nvim-treesitter/nvim-treesitter'
 
-    -- Ricing (funny)
-    use 'ellisonleao/gruvbox.nvim'
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
-
-    -- Terminal
-    use {
-        'akinsho/toggleterm.nvim', tag = '*', config = function()
-        require("toggleterm").setup()
-    end}
+    -- LSP
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
+    use 'neovim/nvim-lspconfig'
 
     -- Completion
-    use 'neovim/nvim-lspconfig'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-vsnip'
-    use 'hrsh7th/vim-vsnip'
-
-    -- Fzf
-    use 'junegunn/fzf'
-    use 'junegunn/fzf.vim'
-
-    -- Formatting
-    use "mhartington/formatter.nvim"
-
-    -- Vimwiki
-    -- use 'vimwiki/vimwiki'
-    
+    use 'SirVer/ultisnips'
+    use 'quangnguyen30192/cmp-nvim-ultisnips'
 end)
