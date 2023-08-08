@@ -31,6 +31,8 @@ vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set("n", "<[d>", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "<d]>", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+vim.keymap.set("n", "<leader>cmpon", require("henry.cmp").enable, {})
+vim.keymap.set("n", "<leader>cmpoff", require("henry.cmp").disable, {})
 
 -- Markdown
 vim.keymap.set("n", "<leader>ww", require("henry.markdown").goto_index)

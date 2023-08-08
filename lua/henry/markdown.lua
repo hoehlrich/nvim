@@ -1,7 +1,10 @@
 require("mkdnflow").setup({
     perspective = {
         priority = "current",
-    }
+    },
+    mappings = {
+        MkdnEnter = {{'i', 'n', 'v'}, '<CR>'}
+    },
 })
 
 local M = {}
