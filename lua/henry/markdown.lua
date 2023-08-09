@@ -15,13 +15,14 @@ require("mkdnflow").setup({
         name_is_source = false,
         transform_explicit = new_file,
         transform_implicit = false,
-    }
+    },
+    wrap = true
 })
 
 local M = {}
 
 function M.goto_index()
-    vim.cmd.cd("~/Documents/vimwiki")
+    vim.cmd.cd("~/Documents/notebook")
     vim.cmd.e("index.md")
 end
 
