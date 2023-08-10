@@ -15,6 +15,10 @@ vim.keymap.set("n", "<c-j>", "<c-w>j")
 vim.keymap.set("n", "<c-k>", "<c-w>k")
 vim.keymap.set("n", "<c-l>", "<c-w>l")
 
+-- Snippets
+vim.keymap.set("i", "<c-j>", "<Plug>(vsnip-jump-next)")
+vim.keymap.set("i", "<c-k>", "<Plug>(vsnip-jump-prev)")
+
 -- Telescope
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<c-p>", builtin.find_files)
@@ -33,6 +37,10 @@ vim.keymap.set("n", "<d]>", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
 vim.keymap.set("n", "<leader>cmpon", require("henry.cmp").enable, {})
 vim.keymap.set("n", "<leader>cmpoff", require("henry.cmp").disable, {})
+
+-- CMP
+vim.keymap.set("i", "<tab>", require("henry.cmp").implicit_complete)
+
 
 -- Markdown
 vim.keymap.set("n", "<leader>ww", require("henry.markdown").goto_index)

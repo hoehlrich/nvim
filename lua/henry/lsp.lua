@@ -1,14 +1,16 @@
-require('mason').setup({
+require("mason").setup({
     ui = {
         border = "single"
     }
 })
-require('mason-lspconfig').setup()
+require("mason-lspconfig").setup()
 
-local lspconfig = require('lspconfig')
+local lspconfig = require("lspconfig")
 lspconfig.clangd.setup{}
+lspconfig.rust_analyzer.setup{}
+lspconfig.lua_ls.setup{}
 
-require('lspconfig.ui.windows').default_options = {
+require("lspconfig.ui.windows").default_options = {
   border = "single"
 }
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
