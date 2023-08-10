@@ -7,4 +7,5 @@ require("henry.markdown")
 require("henry.lsp")
 require("henry.cmp")
 require("henry.telescope")
+require("henry.term")
 

@@ -30,6 +30,11 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 -- Misc
 vim.keymap.set("n", "<leader>noh", "<cmd>noh<cr>");
 
+-- Terminal
+vim.keymap.set("t", "<esc>", "<c-\\><c-n>")
+vim.keymap.set("n", "<c-space>", "<cmd>ToggleTerm<cr>")
+vim.keymap.set("t", "<c-space>", "<cmd>ToggleTerm<cr>")
+
 -- LSP
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set("n", "<[d>", vim.diagnostic.goto_prev)
@@ -37,10 +42,6 @@ vim.keymap.set("n", "<d]>", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
 vim.keymap.set("n", "<leader>cmpon", require("henry.cmp").enable, {})
 vim.keymap.set("n", "<leader>cmpoff", require("henry.cmp").disable, {})
-
--- CMP
-vim.keymap.set("i", "<tab>", require("henry.cmp").implicit_complete)
-
 
 -- Markdown
 vim.keymap.set("n", "<leader>ww", require("henry.markdown").goto_index)

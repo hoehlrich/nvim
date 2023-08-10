@@ -5,7 +5,6 @@ return require("packer").startup(function(use)
     use "nvim-lua/plenary.nvim"
     use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
     use "nvim-telescope/telescope.nvim"
-    require("telescope").load_extension("fzf")
 
     -- Colors
     use "ellisonleao/gruvbox.nvim"
@@ -27,6 +26,8 @@ return require("packer").startup(function(use)
     use "hrsh7th/vim-vsnip"
     use "rafamadriz/friendly-snippets"
 
+    -- Terminal
+    use "akinsho/toggleterm.nvim"
 
     -- Markdown
     use "jakewvincent/mkdnflow.nvim"

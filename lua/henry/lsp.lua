@@ -8,7 +8,15 @@ require("mason-lspconfig").setup()
 local lspconfig = require("lspconfig")
 lspconfig.clangd.setup{}
 lspconfig.rust_analyzer.setup{}
-lspconfig.lua_ls.setup{}
+lspconfig.lua_ls.setup {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = {"vim"}
+            }
+        }
+    }
+}
 
 require("lspconfig.ui.windows").default_options = {
   border = "single"
