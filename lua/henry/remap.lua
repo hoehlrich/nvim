@@ -36,6 +36,8 @@ vim.keymap.set("n", "<leader>cmpoff", require("henry.cmp").disable, {})
 
 -- Markdown
 vim.keymap.set("n", "<leader>ww", require("henry.markdown").goto_index)
+vim.keymap.set("n", "<leader>rr", require("henry.utils").render)
+vim.keymap.set("n", "<leader>ro", require("henry.utils").open)
 
 -- Map after client attatched
 vim.api.nvim_create_autocmd("LspAttach", {
