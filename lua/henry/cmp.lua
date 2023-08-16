@@ -5,7 +5,7 @@ cmp.setup({
     snippet = {
         -- REQUIRED - you must specify a snippet engine
         expand = function(args)
-            vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+            vim.fn["vsnip#anonymous"](args.body)
         end,
     },
     window = {
@@ -15,15 +15,19 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert({
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-n>"] = cmp.mapping.select_next_item(),
+        ["<C-p>"] = cmp.mapping.select_prev_item(),
         ["<C-e>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ["<C-tab>"] = cmp.mapping.confirm({select = true}),
+        ["<CR>"] = cmp.mapping.confirm({select = false}),
     }),
     sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        { name = "ultisnips" }, -- For ultisnips users.
+        { name = "nvim_lsp"},                           -- from language server
+        { name = "path" },                              -- file paths
     }, {
-        { name = "buffer" },
+        { name = "buffer", keyword_length = 3 },        -- source current buffer
+        { name = "vsnip"},                              -- nvim-cmp source for vim-vsnip 
+        { name = "calc"},
     })
 })
 
@@ -53,6 +57,11 @@ end
 
 function M.disable()
     require("cmp").setup({enabled = false})
+end
+
+function M.implicit_complete()
+    require("cmp").select_next_item()
+    require("cmp").abort()
 end
 
 return M
