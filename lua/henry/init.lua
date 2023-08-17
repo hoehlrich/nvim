@@ -1,6 +1,5 @@
 require("henry.packer")
 require("henry.set")
-require("henry.remap")
 require("henry.colors")
 require("henry.treesitter")
 require("henry.markdown")
@@ -9,4 +8,4 @@ require("henry.cmp")
 require("henry.telescope")
 require("henry.utils")
 require("henry.term")
-
+require("henry.remap")
