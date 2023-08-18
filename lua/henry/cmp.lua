@@ -20,6 +20,7 @@ cmp.setup({
         ["<C-e>"] = cmp.mapping.abort(),
         ["<C-tab>"] = cmp.mapping.confirm({select = true}),
         ["<CR>"] = cmp.mapping.confirm({select = false}),
+        ["<C-y>"] = vim.NIL,
     }),
     sources = cmp.config.sources({
         { name = "nvim_lsp"},                           -- from language server
