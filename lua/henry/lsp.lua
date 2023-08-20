@@ -8,6 +8,7 @@ require("mason-lspconfig").setup()
 local lspconfig = require("lspconfig")
 lspconfig.clangd.setup {}
 lspconfig.rust_analyzer.setup {}
+lspconfig.texlab.setup {}
 lspconfig.lua_ls.setup {
     settings = {
         Lua = {
