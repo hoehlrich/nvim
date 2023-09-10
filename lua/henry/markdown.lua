@@ -9,10 +9,11 @@ require("mkdnflow").setup({
         priority = "current",
     },
     mappings = {
-        MkdnEnter = {{'i', 'n', 'v'}, '<CR>'},
-        MkdnToggleToDo = {{'n', 'v'}, "<C-S-D"},
+        MkdnEnter = {{"i", "n", "v"}, "<CR>"},
+        MkdnToggleToDo = {{"n", "v"}, "<leader>t"},
     },
     links = {
+        conceal = true,
         name_is_source = false,
         transform_explicit = new_file,
         transform_implicit = false,
