@@ -15,6 +15,7 @@ return require("packer").startup(function(use)
     use "williamboman/mason.nvim"
     use "williamboman/mason-lspconfig.nvim"
     use "neovim/nvim-lspconfig"
+    use "mfussenegger/nvim-jdtls"
 
     -- Completion
     use "hrsh7th/cmp-nvim-lsp"
