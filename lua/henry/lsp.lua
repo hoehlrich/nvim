@@ -18,8 +18,8 @@ lspconfig.lua_ls.setup {
         }
     }
 }
-
 lspconfig.arduino_language_server.setup {}
+lspconfig.tsserver.setup {}
 
 require("lspconfig.ui.windows").default_options = {
     border = "single"

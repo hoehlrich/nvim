@@ -29,6 +29,7 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 
 -- Misc
 vim.keymap.set("n", "<leader>noh", "<cmd>noh<cr>");
+vim.api.nvim_command("command! -nargs=0 W :w");
 
 -- Terminal
 vim.keymap.set("n", "<c-space>", "<cmd>ToggleTerm<cr>")
