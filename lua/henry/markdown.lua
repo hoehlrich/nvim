@@ -26,6 +26,7 @@ local M = {}
 function M.goto_index()
     vim.cmd.cd("~/Documents/notebook")
     vim.cmd.e("index.md")
+    vim.cmd.e()
 end
 
 return M
