@@ -24,7 +24,7 @@ require("mkdnflow").setup({
 local M = {}
 
 function M.goto_index()
-    vim.cmd.cd("~/Documents/notebook")
+    vim.cmd.cd("~/docs/notebook")
     vim.cmd.e("index.md")
     vim.cmd.e()
 end

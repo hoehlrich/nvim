@@ -19,7 +19,6 @@ lspconfig.lua_ls.setup {
     }
 }
 lspconfig.arduino_language_server.setup {}
-lspconfig.tsserver.setup {}
 
 require("lspconfig.ui.windows").default_options = {
     border = "single"
@@ -35,5 +34,6 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
     }
 )
 vim.diagnostic.config {
+    virtual_text = true,
     float = { border = "single" }
 }
