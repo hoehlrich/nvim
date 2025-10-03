@@ -5,20 +5,17 @@ require("mason").setup({
 })
 require("mason-lspconfig").setup()
 
-local lspconfig = require("lspconfig")
-lspconfig.clangd.setup {}
-lspconfig.rust_analyzer.setup {}
-lspconfig.texlab.setup {}
-lspconfig.lua_ls.setup {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { "vim" }
-            }
+
+vim.lsp.config("clangd", {})
+vim.lsp.config("rust_analyzer", {})
+vim.lsp.config("texlab", {})
+vim.lsp.config("lua_ls", {
+    Lua = {
+        diagnostics = {
+            globals = { "vim" }
         }
     }
-}
-lspconfig.arduino_language_server.setup {}
+} )
 
 require("lspconfig.ui.windows").default_options = {
     border = "single"
