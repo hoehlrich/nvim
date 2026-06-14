@@ -5,9 +5,24 @@ require("mason").setup({
 })
 require("mason-lspconfig").setup()
 
+vim.lsp.config('pyright', {
+  settings = {
+    python = {
+      analysis = {
+        extraPaths = {
+	        '/home/henry/dev/icarus/icarus/option_trees/icarus/inc/xm-python/lib',
+	        '/home/henry/dev/icarus/icarus/option_trees/icarus/inc/xm-python/pylib',
+	        '/home/henry/dev/icarus/icarus/option_trees/icarus/inc/xm-python/python',
+        },
+        diagnosticSeverityOverrides = {
+          reportMissingModuleSource = 'none',
+        },
+      },
+    },
+  },
+})
 
 vim.lsp.enable{"matlab-language-server"}
-vim.lsp.enable{"python-lsp-server"}
 vim.lsp.enable("clangd")
 vim.lsp.enable("rust_analyzer")
 vim.lsp.enable("texlab")

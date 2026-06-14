@@ -1,16 +1,9 @@
-require("nvim-treesitter.configs").setup {
-  -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "c", "lua", "vim", "rust" },
+require("nvim-treesitter").setup()
 
-  -- Automatically install missing parsers when entering buffer
-  auto_install = true,
+require("nvim-treesitter").install({ "c", "lua", "vim", "vimdoc", "query", "rust" })
 
-  ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-  -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
-
-  conceal = false,
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
-}
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function()
+    pcall(vim.treesitter.start)
+  end,
+})
