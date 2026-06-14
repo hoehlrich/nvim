@@ -6,9 +6,11 @@ require("mason").setup({
 require("mason-lspconfig").setup()
 
 
-vim.lsp.config("clangd", {})
-vim.lsp.config("rust_analyzer", {})
-vim.lsp.config("texlab", {})
+vim.lsp.enable{"matlab-language-server"}
+vim.lsp.enable{"python-lsp-server"}
+vim.lsp.enable("clangd")
+vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("texlab")
 vim.lsp.config("lua_ls", {
     Lua = {
         diagnostics = {
@@ -16,6 +18,7 @@ vim.lsp.config("lua_ls", {
         }
     }
 } )
+vim.lsp.enable("lua_ls")
 
 require("lspconfig.ui.windows").default_options = {
     border = "single"

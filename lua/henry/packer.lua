@@ -9,7 +9,6 @@ return require("packer").startup(function(use)
     -- Colors
     use "ellisonleao/gruvbox.nvim"
     use "nvim-treesitter/nvim-treesitter"
-    use "nvim-treesitter/playground"
 
     -- LSP
     use "williamboman/mason.nvim"
