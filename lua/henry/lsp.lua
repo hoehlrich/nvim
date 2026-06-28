@@ -9,13 +9,15 @@ vim.lsp.config('pyright', {
   settings = {
     python = {
       analysis = {
+          typeCheckingMode = "off",   -- "basic" if you want to keep light checks
+          diagnosticSeverityOverrides = {
+              reportUndefinedVariable = "none",  -- backstop in case injector misses one
+              reportMissingModuleSource = 'none',
+          },
         extraPaths = {
 	        '/home/henry/dev/icarus/icarus/option_trees/icarus/inc/xm-python/lib',
 	        '/home/henry/dev/icarus/icarus/option_trees/icarus/inc/xm-python/pylib',
 	        '/home/henry/dev/icarus/icarus/option_trees/icarus/inc/xm-python/python',
-        },
-        diagnosticSeverityOverrides = {
-          reportMissingModuleSource = 'none',
         },
       },
     },

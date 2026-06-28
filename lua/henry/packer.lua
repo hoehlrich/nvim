@@ -33,4 +33,30 @@ return require("packer").startup(function(use)
     -- Markdown
     use "jakewvincent/mkdnflow.nvim"
 
+    -- LeetCode
+    use {
+        "kawre/leetcode.nvim",
+        run = ":TSUpdate html",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "MunifTanjim/nui.nvim",
+            "nvim-telescope/telescope.nvim", -- your picker
+        },
+        config = function()
+            require("leetcode").setup({
+                lang = "python3",
+                injector = {
+                    ["python3"] = {
+                        before = {
+                            "from typing import List, Optional, Dict, Tuple, Set",
+                            "from collections import defaultdict, Counter, deque",
+                            "import heapq, math, bisect",
+                        },
+                    },
+                },
+            })
+        end,
+    }
+
+
 end)

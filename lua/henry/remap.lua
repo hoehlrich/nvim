@@ -54,6 +54,10 @@ vim.keymap.set("n", "<leader>ww", require("henry.markdown").goto_index)
 vim.keymap.set("n", "<leader>rr", require("henry.utils").render)
 vim.keymap.set("n", "<leader>ro", require("henry.utils").open)
 
+-- LeetCode
+vim.keymap.set("n", "<leader>lt", "<cmd>Leet test<cr>")
+vim.keymap.set("n", "<leader>ls", "<cmd>Leet submit<cr>")
+
 -- Map after client attatched
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
