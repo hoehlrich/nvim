@@ -44,16 +44,7 @@ return require("packer").startup(function(use)
         },
         config = function()
             require("leetcode").setup({
-                lang = "python3",
-                injector = {
-                    ["python3"] = {
-                        before = {
-                            "from typing import List, Optional, Dict, Tuple, Set",
-                            "from collections import defaultdict, Counter, deque",
-                            "import heapq, math, bisect",
-                        },
-                    },
-                },
+                lang = "cpp",
             })
         end,
     }

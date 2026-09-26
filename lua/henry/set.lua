@@ -9,6 +9,7 @@ vim.opt.wrap = false
 vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:block,r-cr-o:hor20"
 
 vim.g.mapleader = " "
+
 vim.g.copilot_assume_mapped = true;
 vim.g.copilot_no_tab_map = true;
-
+vim.g.arduino_recommended_style = 0

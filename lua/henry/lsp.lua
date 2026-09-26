@@ -37,6 +37,42 @@ vim.lsp.config("lua_ls", {
 } )
 vim.lsp.enable("lua_ls")
 
+vim.lsp.config('arduino_language_server', {
+  cmd = {
+    "arduino-language-server",
+    "-cli-config", vim.fn.expand("~/.arduino15/arduino-cli.yaml"),
+    "-fqbn", "arduino:avr:uno", -- swap for your actual board
+    "-clangd", "/usr/bin/clangd",
+  },
+  filetypes = { "arduino" },
+  root_markers = { "sketch.yaml", ".git" },
+})
+
+vim.lsp.enable('arduino_language_server')
+
+-- beancount: point the server at the project's main ledger and its uv venv
+vim.lsp.config('beancount', {
+  root_markers = { "main.beancount", ".git" },
+  before_init = function(params, config)
+    local root = config.root_dir
+    if not root then return end
+    local opts = params.initializationOptions or {}
+    local journal = root .. "/main.beancount"
+    if vim.uv.fs_stat(journal) then
+      opts.journal_file = journal
+    end
+    local venv_bin = root .. "/.venv/bin/"
+    if vim.fn.executable(venv_bin .. "bean-check") == 1 then
+      opts.bean_check = {
+        bean_check_cmd = venv_bin .. "bean-check",
+        python_cmd = venv_bin .. "python",
+      }
+    end
+    params.initializationOptions = opts
+  end,
+})
+vim.lsp.enable('beancount')
+
 require("lspconfig.ui.windows").default_options = {
     border = "single"
 }
